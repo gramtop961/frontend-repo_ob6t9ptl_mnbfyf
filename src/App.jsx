@@ -1,28 +1,37 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import ProjectsDashboard from './components/ProjectsDashboard';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-slate-950 text-slate-200">
+      <header className="sticky top-0 z-40 backdrop-blur bg-slate-950/70 border-b border-white/10">
+        <div className="container mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
+          <a href="#" className="font-semibold text-white">A Student Engineer</a>
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#about" className="hover:text-white/90">About</a>
+            <a href="#projects" className="hover:text-white/90">Projects</a>
+            <a href="#contact" className="hover:text-white/90">Contact</a>
+          </nav>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main className="container mx-auto px-6 md:px-10 py-6 md:py-10 space-y-12 md:space-y-16">
+        <Hero />
+        <About />
+        <ProjectsDashboard />
+        <Contact />
+      </main>
+
+      <footer className="border-t border-white/10 py-8">
+        <div className="container mx-auto px-6 md:px-10 text-sm text-slate-400">
+          © {new Date().getFullYear()} A Student Engineer. All rights reserved.
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
